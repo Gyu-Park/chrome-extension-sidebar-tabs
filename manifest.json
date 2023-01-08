@@ -1,0 +1,33 @@
+{
+    "name": "GS Bookmarks",
+    "version": "0.1.0",
+    "description": "Organizing bookmarks better",
+    "permissions": ["tabs", "activeTab", "bookmarks", "storage"],
+    "action": {
+        "default_icon": {
+        "16": "images/icon16.png",
+        "24": "images/icon24.png",
+        "32": "images/icon32.png"
+        }
+    },
+    "background": {
+        "service_worker":"background.js"
+    },
+    "content_scripts": [
+        {
+          "matches": [
+              "https://*/*",
+              "http://*/*"
+          ],
+          "js": ["sidebar.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+          "resources": ["popup.html" ],
+          "matches": ["https://*/*", "http://*/*"],
+          "extension_id": ["neellehgaebdanijphkeoglkkfkhphbl"]
+        }
+    ],
+    "manifest_version": 3
+}
