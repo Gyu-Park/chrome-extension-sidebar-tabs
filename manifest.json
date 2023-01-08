@@ -24,7 +24,7 @@
     ],
     "web_accessible_resources": [
         {
-          "resources": ["popup.html" ],
+          "resources": ["sidebar.html" ],
           "matches": ["https://*/*", "http://*/*"],
           "extension_id": ["neellehgaebdanijphkeoglkkfkhphbl"]
         }
