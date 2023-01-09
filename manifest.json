@@ -1,5 +1,5 @@
 {
-    "name": "GS Bookmarks",
+    "name": "Tabs on sidebar",
     "version": "0.1.0",
     "description": "Organizing bookmarks better",
     "permissions": ["tabs", "activeTab", "bookmarks", "storage"],
