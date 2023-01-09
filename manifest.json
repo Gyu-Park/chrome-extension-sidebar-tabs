@@ -2,7 +2,7 @@
     "name": "Tabs on sidebar",
     "version": "0.1.0",
     "description": "Open tabs on sidebar",
-    "permissions": ["tabs", "activeTab", "bookmarks", "storage"],
+    "permissions": ["tabs", "activeTab", "storage"],
     "action": {
         "default_icon": {
         "16": "images/icon16.png",
