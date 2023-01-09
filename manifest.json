@@ -16,8 +16,7 @@
     "content_scripts": [
         {
           "matches": [
-              "https://*/*",
-              "http://*/*"
+              "<all_urls>"
           ],
           "js": ["sidebar.js"]
         }
@@ -25,7 +24,7 @@
     "web_accessible_resources": [
         {
           "resources": ["sidebar.html" ],
-          "matches": ["https://*/*", "http://*/*"],
+          "matches": ["<all_urls>"],
           "extension_id": ["neellehgaebdanijphkeoglkkfkhphbl"]
         }
     ],
