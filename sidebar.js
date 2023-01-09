@@ -61,7 +61,8 @@ function query() {
             draggable.addEventListener('dragend', () => {
                 draggable.classList.remove('dragging');
                 draggable.style.opacity = '';
-                if (afterElementIndex === tabs.length - 1)
+                console.log("after: " + afterElementIndex);
+                if (afterElementIndex === tabs.length)
                     chrome.tabs.move(parseInt(draggable.getAttribute('id')), {index: -1});
                 else if (draggableIndex > afterElementIndex)
                     chrome.tabs.move(parseInt(draggable.getAttribute('id')), {index: afterElementIndex});
@@ -78,7 +79,7 @@ function query() {
                 const draggable = document.querySelector('.dragging');
                 if (afterElement == null) {
                     container.appendChild(draggable);
-                    // chrome.tabs.move(parseInt(draggable.getAttribute('id')), {index: -1});
+                    afterElementIndex = tabs.length;;
                 } else {
                     container.insertBefore(draggable, afterElement);
                     for (let i = 0; i < tabs.length; i++) {
@@ -109,17 +110,10 @@ function query() {
 
 query();
 
-chrome.tabs.onActivated.addListener(function() {
-    document.body.innerHTML = '';
-    query();
-});
+function refresh() {
+    location.reload();
+}
 
-chrome.tabs.onMoved.addListener(function() {
-    document.body.innerHTML = '';
-    query();
-});
-
-chrome.tabs.onRemoved.addListener(function() {
-    document.body.innerHTML = '';
-    query();
-});
+chrome.tabs.onActivated.addListener(refresh);
+chrome.tabs.onMoved.addListener(refresh);
+chrome.tabs.onRemoved.addListener(refresh);
