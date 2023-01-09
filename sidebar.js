@@ -36,8 +36,20 @@ function query() {
         document.write(`<h3 style="padding: 0.5rem; margin-top: 0rem">The tabs you're on are:</h3>`);
         document.write(`<div class="container" style="background-color: white; padding: 0.1rem; margin-top: -20px">`);
         for (let i = 0; i < tabs.length; i++) {
-            document.write(`<p class="draggable" id="${tabs[i].id}" draggable="true" style="padding: 0.5rem; background-color: white; border: 1px solid black; cursor: grab;">
-            ${tabs[i].title}</p>`);
+            let title = tabs[i].title.length < 50 ? tabs[i].title : tabs[i].title.substring(0, 50) + "...";
+            document.write(`<p class="draggable" id="${tabs[i].id}" draggable="true" style="padding: 0.5rem; background-color: white; border: 1px solid black; border-radius: 5px; cursor: grab;">`);
+            if (tabs[i].title === "Extensions") {
+                document.write(`<img src="https://static.chrome-stats.com/favicon.png" style="width: 12px; height: 12px; margin-right: 5px" />`);
+            } else if (tabs[i].title === "Settings") {
+                document.write(`<img src="https://cdn4.iconfinder.com/data/icons/blue-common-symbols-vol-1/1024/cog_wheel_sprocket_piece_gear_app_mobile-512.png" style="width: 12px; height: 12px; margin-right: 5px" />`);
+            } else if (tabs[i].title === "New Tab") {
+                document.write(`<img src="https://www.pngfind.com/pngs/m/315-3150910_png-file-svg-google-chrome-logo-black-transparent.png" style="width: 12px; height: 12px; margin-right: 5px" />`);
+            } else if (tabs[i].favIconUrl.length > 0) {
+                document.write(`<img src="${tabs[i].favIconUrl}" style="width: 12px; height: 12px; margin-right: 5px" />`);
+            } else {
+                document.write(`<img src="https://www.clipartmax.com/png/small/217-2174137_blank-document-free-icon-empty-page-icon.png" style="width: 12px; height: 12px; margin-right: 5px" />`);
+            }
+            document.write(`   ${title}</p>`);
         }
         document.write(`</div>`);
     
@@ -114,6 +126,7 @@ function refresh() {
     location.reload();
 }
 
+chrome.tabs.onCreated.addListener(refresh);
 chrome.tabs.onActivated.addListener(refresh);
 chrome.tabs.onMoved.addListener(refresh);
 chrome.tabs.onRemoved.addListener(refresh);
