@@ -1,7 +1,7 @@
 {
     "name": "Tabs on sidebar",
     "version": "0.1.0",
-    "description": "Organizing bookmarks better",
+    "description": "Open tabs on sidebar",
     "permissions": ["tabs", "activeTab", "bookmarks", "storage"],
     "action": {
         "default_icon": {
