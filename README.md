@@ -1,6 +1,10 @@
 # chrome-extension-sidebar-tabs
 Tech stack: HTML/CSS, JavaScript
 
-- the progress on Jan 09, 2023
+- second example
+
+![example](/images/01092023(2).gif)
+
+- first example
 
 ![example](/images/01092023.gif)
