@@ -33,8 +33,8 @@ function toggle(){
 
 function query() {
     chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
-        document.write(`<h3>The tabs you're on are:</h3>`);
-        document.write(`<div class="container" style="background-color: white; padding: 0.1rem; margin-top: 1rem">`);
+        document.write(`<h3 style="padding: 0.5rem; margin-top: 0rem">The tabs you're on are:</h3>`);
+        document.write(`<div class="container" style="background-color: white; padding: 0.1rem; margin-top: -20px">`);
         for (let i = 0; i < tabs.length; i++) {
             document.write(`<p class="draggable" id="${tabs[i].id}" draggable="true" style="padding: 0.5rem; background-color: white; border: 1px solid black; cursor: grab;">
             ${tabs[i].title}</p>`);
